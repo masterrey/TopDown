@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 6741122559016293061}
   - component: {fileID: 5499899500403003790}
   - component: {fileID: 206733689836704342}
+  - component: {fileID: 2981315043238480770}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -275,3 +276,18 @@ MonoBehaviour:
   - {fileID: 21300004, guid: ec47f75fe8aff1644ac73998f4ad31b5, type: 3}
   - {fileID: 21300000, guid: ec47f75fe8aff1644ac73998f4ad31b5, type: 3}
   speed: 200
+  leveltoload: 
+--- !u!114 &2981315043238480770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365834299716119264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b00dbb27213854786f061df6e7461b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyname: 
+  enableRemembering: 1
