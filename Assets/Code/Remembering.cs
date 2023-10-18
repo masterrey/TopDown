@@ -18,20 +18,12 @@ public class Remembering : MonoBehaviour
             keyname = gameObject.name;
             if (keyname.Length > 0)
             {
-                try
-                {
-                    // if (PlayerPrefs.HasKey(keyname))
-                    if (positions[keyname] != null)
-                    {
+               
+                if (positions.ContainsKey(keyname))
+                  {
                         //transform.position = PlayerPrefsX.GetVector3(keyname);
                         transform.position = positions[keyname];
-                    }
-                }
-                catch
-                {
-                    Debug.Log("No key found");
-                }
-
+                  }
                 InvokeRepeating("InaSecond", 0, 1);
             }
         }
@@ -39,7 +31,7 @@ public class Remembering : MonoBehaviour
 
    void InaSecond()
     {
-        positions[keyname] = transform.position;
+        positions[keyname]=transform.position;
        // PlayerPrefsX.SetVector3(keyname, transform.position);
        // PlayerPrefs.Save();
     }
