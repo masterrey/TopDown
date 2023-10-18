@@ -8,19 +8,30 @@ public class Remembering : MonoBehaviour
     string keyname;
     [SerializeField]
     bool enableRemembering = false;
+    private static Dictionary<string, Vector3> positions = new Dictionary<string, Vector3>();
+
     // Start is called before the first frame update
     void Start()
     {
-        
         if (enableRemembering)
         {
             keyname = gameObject.name;
             if (keyname.Length > 0)
             {
-                if (PlayerPrefs.HasKey(keyname))
+                try
                 {
-                    transform.position = PlayerPrefsX.GetVector3(keyname);
+                    // if (PlayerPrefs.HasKey(keyname))
+                    if (positions[keyname] != null)
+                    {
+                        //transform.position = PlayerPrefsX.GetVector3(keyname);
+                        transform.position = positions[keyname];
+                    }
                 }
+                catch
+                {
+                    Debug.Log("No key found");
+                }
+
                 InvokeRepeating("InaSecond", 0, 1);
             }
         }
@@ -28,7 +39,8 @@ public class Remembering : MonoBehaviour
 
    void InaSecond()
     {
-        PlayerPrefsX.SetVector3(keyname, transform.position);
-        PlayerPrefs.Save();
+        positions[keyname] = transform.position;
+       // PlayerPrefsX.SetVector3(keyname, transform.position);
+       // PlayerPrefs.Save();
     }
 }
